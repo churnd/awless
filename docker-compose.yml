@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  awless:
+    hostname: awless
+    build:
+      dockerfile: Dockerfile
+    image: awless
+    init: true
+    sysctls:
+      net.ipv4.tcp_keepalive_time: 1200
+    cap_add:
+      - SYS_ADMIN
+    ulimits:
+      nofile:
+        hard: 90000
+        soft: 65000
+      nproc: 65535
+    working_dir: /root
+    volumes:
+      - $HOME/.aws/config:/root/.aws/config:ro
+      - $HOME/.aws/credentials:/root/.aws/credentials:ro
+      - $HOME/.ssh:/ssh:ro
