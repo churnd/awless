@@ -2,7 +2,9 @@
 
 Docker Container to run <https://github.com/wallix/awless>
 
-`docker exec -it awless_awless_1 /bin/bash`
+Build & start the container: `docker-compose up -d`
+
+Log into the container: `docker exec -it awless_awless_1 /bin/bash`
 
 Container assumes you have AWS creds set up on your local workstation already (from [docker-compose.yml](docker-compose.yml)):
 
